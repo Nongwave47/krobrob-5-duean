@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#ff5f9e;
+  --soft:#ffe6f0;
+  --glass:rgba(255,255,255,0.55);
+  --border:rgba(255,255,255,0.4);
+  --text:#333;
+}
+
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Kanit',sans-serif;}
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#ff7eb3,#ff758c,#ffb6c1,#ffe6f0);
+  background-size:400% 400%;
+  animation:bgMove 18s ease infinite;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Hearts Animation */
+.heart{
+  position:absolute;width:20px;height:20px;
+  background:red;transform:rotate(-45deg);
+  animation:float 6s linear infinite;opacity:0.7;z-index:1;
+}
+.heart::before,.heart::after{
+  content:"";position:absolute;width:20px;height:20px;
+  background:red;border-radius:50%;
+}
+.heart::before{top:-10px; left:0;}
+.heart::after{left:10px; top:0;}
+@keyframes float{
+  0%{transform:translateY(0) scale(1) rotate(-45deg);}
+  50%{transform:translateY(-150px) scale(1.1) rotate(-45deg);}
+  100%{transform:translateY(-300px) scale(1) rotate(-45deg);}
+}
+
+/* Header */
+header{text-align:center;padding:36px 20px 20px;position:relative;z-index:2;}
+header h1{font-family:'Sacramento',cursive;font-size:72px;color:#fff;text-shadow:0 10px 25px rgba(0,0,0,.3);}
+header p{font-size:18px;color:#fff;margin-top:6px;}
+
+/* Text Grid */
+.text-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  width:90%;
+  max-width:1000px;
+  margin:20px auto;
+}
+
+.text-card{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  font-size:16px;
+  color:#333;
+  font-weight:500;
+  text-align:center;
+  transition:transform .3s ease, box-shadow .3s ease;
+  cursor:pointer;
+}
+
+.text-card:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 18px 40px rgba(255,78,137,.25);
+}
+
+/* Modal */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+.modal-content{
+  background:#fff;
+  padding:28px 32px;
+  border-radius:24px;
+  max-width:500px;
+  text-align:center;
+  font-size:16px;
+  color:#333;
+  position:relative;
+}
+.modal-content img{
+  max-width:100%;
+  border-radius:16px;
+}
+.modal-content button{
+  position:absolute;
+  top:12px;
+  right:12px;
+  background:var(--pink);
+  border:none;
+  color:#fff;
+  font-size:18px;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+/* Buttons */
+.actions{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  margin:36px 0 60px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 32px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:16px;
+  text-decoration:none;
+  color:#fff;
+  background:linear-gradient(135deg,#ff4e89,#ff758c,#ffb6c1);
+  box-shadow:0 10px 25px rgba(255,78,137,.35);
+  transition:.3s ease;
+}
+.btn:hover{
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 16px 35px rgba(255,78,137,.5);
+}
+
+/* Footer */
+footer{text-align:center;margin-bottom:36px;font-size:14px;color:#fff;opacity:.9;}
+
+@media(max-width:600px){
+  header h1{font-size:56px;}
+  header p{font-size:16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Hearts floating -->
+<div class="heart" style="left:10%; animation-delay:0s;"></div>
+<div class="heart" style="left:25%; animation-delay:1s;"></div>
+<div class="heart" style="left:40%; animation-delay:2s;"></div>
+<div class="heart" style="left:55%; animation-delay:1.5s;"></div>
+<div class="heart" style="left:70%; animation-delay:2.5s;"></div>
+<div class="heart" style="left:85%; animation-delay:3s;"></div>
+
+<header>
+  <h1>Our Story 💖</h1>
+  <p>5 เดือนที่เราเลือกกัน แม้ยังไม่เคยเจอหน้า 🌹</p>
+</header>
+
+<!-- Text Grid -->
+<section class="text-grid">
+  <div class="text-card" data-img="12082025.png">วันแรกที่เราคุยกัน 💬</div>
+  <div class="text-card" data-img="image.png">คุยกันจนลืมเวลา ⏰</div>
+  <div class="text-card" data-detail="ส่งข้อความแต่ละข้อความ ทำให้ใจฉันพองโตทุกครั้ง 💞">ข้อความทำให้หัวใจพองโต 💞</div>
+  <div class="text-card" data-detail="ระยะทางไม่เคยทำให้ความรู้สึกลดลง 🌍">ระยะทางไม่เคยหยุดความรู้สึก 🌍</div>
+  <div class="text-card" data-detail="ยังไม่เคยเจอหน้า แต่เลือกเธอทุกวัน 🤍">ยังไม่เคยเจอ แต่เลือกเธอทุกวัน 🤍</div>
+  <div class="text-card" data-detail="รอวันที่จะได้เจอกันจริงๆ 🌹">รอวันที่จะได้เจอกันจริงๆ 🌹</div>
+</section>
+
+<!-- Navigation Buttons -->
+<div class="actions">
+  <a href="index.html" class="btn">กลับไปหน้าแรก 🏠</a>
+  <a href="timeline.html" class="btn">ดู Timeline ของเรา 📝</a>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <button id="closeModal">&times;</button>
+    <img id="modalImg" src="" alt="Our Memory">
+    <p id="modalText"></p>
+  </div>
+</div>
+
+<script>
+// Modal Logic
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalText = document.getElementById('modalText');
+const closeModal = document.getElementById('closeModal');
+
+document.querySelectorAll('.text-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const imgSrc = card.getAttribute('data-img');
+    const textDetail = card.getAttribute('data-detail');
+    
+    if(imgSrc){
+      modalImg.src = imgSrc;
+      modalImg.style.display = "block";
+      modalText.style.display = "none";
+    } else if(textDetail){
+      modalText.textContent = textDetail;
+      modalText.style.display = "block";
+      modalImg.style.display = "none";
+    }
+    
+    modal.style.display = 'flex';
+  });
+});
+
+closeModal.addEventListener('click',()=>{
+  modal.style.display='none';
+  modalImg.src = "";
+});
+
+window.addEventListener('click',e=>{
+  if(e.target===modal) modal.style.display='none';
+});
+</script>
+
+<footer>
+  Made with love 💌
+</footer>
+
+</body>
+</html>

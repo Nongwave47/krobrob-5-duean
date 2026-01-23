@@ -1,207 +1,48 @@
 <!doctype html>
 <html lang="th">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Happy 5 Months 💖</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --pink:#ff5f9e;
-  --soft:#ffe6f0;
-  --glass:rgba(255,255,255,0.55);
-  --border:rgba(255,255,255,0.4);
-  --text:#333;
-}
-
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:'Kanit',sans-serif;
-  min-height:100vh;
-  background:linear-gradient(135deg,#ff7eb3,#ff758c,#ffb6c1,#ffe6f0);
-  background-size:400% 400%;
-  animation:bgMove 18s ease infinite;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-@keyframes bgMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
-}
-
-.app{
-  width:100%;
-  max-width:900px;
-  padding:28px;
-}
-
-/* ===== Header ===== */
-header{
-  text-align:center;
-  margin-bottom:28px;
-  color:#fff;
-}
-
-.title{
-  font-family:'Sacramento',cursive;
-  font-size:82px;
-  margin:0;
-  text-shadow:
-    0 10px 35px rgba(0,0,0,.35),
-    0 0 25px rgba(255,255,255,.35);
-  animation:float 3s ease-in-out infinite alternate;
-}
-
-@keyframes float{
-  from{transform:translateY(0)}
-  to{transform:translateY(-10px)}
-}
-
-.subtitle{
-  font-size:20px;
-  opacity:.95;
-}
-
-/* ===== Card ===== */
-.card{
-  position:relative;
-  background:var(--glass);
-  backdrop-filter:blur(22px);
-  border-radius:32px;
-  padding:48px;
-  border:1px solid var(--border);
-  box-shadow:
-    0 30px 60px rgba(0,0,0,.2),
-    inset 0 0 0 1px rgba(255,255,255,.2);
-  animation:cardIn .9s ease;
-}
-
-@keyframes cardIn{
-  from{opacity:0;transform:translateY(30px) scale(.95)}
-  to{opacity:1;transform:none}
-}
-
-/* glow border */
-.card::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:inherit;
-  background:linear-gradient(120deg,#ff4e89,#ffb6c1,#fff);
-  opacity:.35;
-  z-index:-1;
-}
-
-/* ===== Text ===== */
-h2 {
-  display: inline-block;
-  margin: 0 18px;
-  font-size: 36px;
-  font-weight: 600;
-  text-align: center;
-
-  background-image: linear-gradient(
-    90deg,
-    #ff4e89 0%,
-    #ff6f91 35%,
-    #ff9a9e 65%,
-    #fad0c4 100%
-  );
-
-  background-size: 200% 200%;
-  background-position: center;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-
-p{
-  font-size:18px;
-  line-height:1.9;
-  text-align:center;
-  color:var(--text);
-  margin-bottom:18px;
-}
-
-/* ===== Actions ===== */
-.actions{
-  display:flex;
-  justify-content:center;
-  margin-top:36px;
-}
-
-.btn{
-  padding:16px 34px;
-  border-radius:999px;
-  font-size:17px;
-  font-weight:600;
-  text-decoration:none;
-  color:#fff;
-  background:linear-gradient(135deg,#ff4e89,#ff758c,#ffb6c1);
-  box-shadow:0 12px 30px rgba(255,78,137,.45);
-  transition:.3s ease;
-}
-
-.btn:hover{
-  transform:translateY(-4px) scale(1.05);
-  box-shadow:0 18px 40px rgba(255,78,137,.6);
-}
-
-/* ===== Footer ===== */
-footer{
-  text-align:center;
-  margin-top:26px;
-  font-size:14px;
-  color:#fff;
-  opacity:.9;
-}
-
-/* ===== Mobile ===== */
-@media(max-width:600px){
-  .title{font-size:60px}
-  .card{padding:32px}
-  h2{font-size:28px}
-  p{font-size:16px}
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy 5 Months 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 <div class="app">
 
-<header>
-  <h1 class="title">Happy 5 Months 💕</h1>
-  <div class="subtitle">ทุกวันกับเธอคือของขวัญที่สวยที่สุด 🌹</div>
-</header>
+  <header>
+    <h1 class="title">Happy 5 Months 💕</h1>
+    <div class="subtitle">ทุกวันกับเธอคือของขวัญที่สวยที่สุด 🌹</div>
+  </header>
 
-<section class="card">
-  <h2>5 เดือนที่หัวใจพี่เลือกเธอ</h2>
+  <section class="card text-card">
+    <h2>5 เดือนที่หัวใจพี่เลือกเธอ</h2>
+    <p>
+      ขอบคุณที่เข้ามาเติมเต็มทุกวันธรรมดาให้กลายเป็นวันที่มีความหมาย 💖
+      แค่มีหนูอยู่ข้าง ๆ โลกของพี่ก็น่าอยู่ขึ้นมาก
+      พี่อาจไม่สมบูรณ์แบบ แต่พี่สัญญาว่าจะรัก ดูแล
+      และรักษาความรู้สึกนี้ไว้ให้ดีที่สุดเสมอ 🌷
+    </p>
 
-  <p>
-    ขอบคุณที่เข้ามาเติมเต็มทุกวันธรรมดาให้กลายเป็นวันที่มีความหมาย 💖
-    แค่มีหนูอยู่ข้าง ๆ โลกของพี่ก็น่าอยู่ขึ้นมาก
-    พี่อาจไม่สมบูรณ์แบบ แต่พี่สัญญาว่าจะรัก ดูแล
-    และรักษาความรู้สึกนี้ไว้ให้ดีที่สุดเสมอ 🌷
-  </p>
+    <div class="actions">
+      <a href="ourstory.html" class="btn">ดูช่วงเวลาของเรา 📸</a>
+    </div>
+  </section>
 
-  <div class="actions">
-    <a href="ourstory.html" class="btn">ดูช่วงเวลาของเรา 📸</a>
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <p id="modalText"></p>
+    </div>
   </div>
-</section>
 
-<footer>
-  Made with love for our 5 months anniversary 💌
-</footer>
+  <footer>
+    Made with wave 💌
+  </footer>
 
 </div>
+
+<script src="index.js"></script>
 </body>
 </html>

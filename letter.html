@@ -5,7 +5,173 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Letter 💌</title>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="letter.css">
+<style>
+  :root {
+    --pink: #ff5f9e;
+    --soft: #ffe6f0;
+    --white: #fff;
+    --shadow: rgba(0,0,0,0.2);
+  }
+
+  * { box-sizing: border-box; margin:0; padding:0; font-family:'Kanit', sans-serif; }
+
+  body {
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #ff7eb3,#ff758c,#ffb6c1,#ffe6f0);
+    background-size:400% 400%;
+    animation:bgMove 20s linear infinite;
+    color:#333;
+    overflow:hidden;
+    perspective:1200px;
+  }
+  @keyframes bgMove {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+
+  .container {
+    text-align:center;
+    width:100%;
+    max-width:500px;
+    padding:20px;
+    position:relative;
+  }
+
+  header h1 {
+    font-family:'Sacramento', cursive;
+    font-size:clamp(40px,10vw,56px);
+    color:#fff;
+    text-shadow:0 6px 20px rgba(0,0,0,.3);
+  }
+  header p {
+    font-size:16px;
+    color:#fff;
+    margin-top:6px;
+    transition:opacity 0.5s;
+  }
+
+  /* Envelope */
+  .envelope {
+    width:280px;
+    height:180px;
+    margin:50px auto;
+    position:relative;
+    cursor:pointer;
+    z-index:2;
+    transition:transform 0.5s ease;
+  }
+  .envelope .flap {
+    width:0; height:0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-bottom:90px solid #ffb6c1;
+    position:absolute; top:0; left:0;
+    transform-origin: top center;
+    transition: transform 0.8s ease;
+    background:linear-gradient(120deg,#ffc1d4,#ff7eb3);
+    z-index:3;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
+  }
+  .envelope .body {
+    width:100%; height:100%;
+    background:#fff;
+    border-radius:0 0 10px 10px;
+    box-shadow:0 10px 20px var(--shadow);
+    position:absolute; top:0; left:0;
+    z-index:2;
+    transition: all 0.8s ease;
+  }
+
+  .envelope.open .flap { transform: rotateX(-180deg); z-index:1; }
+  .envelope.open .body { opacity:0; transform:translateY(50px) scale(0.5); }
+
+  /* Letter */
+  .letter {
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%) scale(0);
+    width:260px;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 15px 35px var(--shadow);
+    z-index:10;
+    overflow:hidden;
+    transition: transform 0.8s ease, width 0.8s ease, max-height 0.8s ease;
+    visibility:hidden;
+  }
+  .envelope.open .letter {
+    visibility:visible;
+    transform:translate(-50%,-50%) scale(1);
+    width:90vw; max-width:520px; max-height:85vh;
+  }
+
+  .letter-content { text-align:left; }
+  .letter-content p {
+    opacity:0; transform:translateY(15px);
+    margin-bottom:15px; font-size:16px; line-height:1.6; color:#444;
+    transition:all 0.5s ease;
+  }
+  .letter-content p.show { opacity:1; transform:translateY(0); }
+
+  /* Buttons */
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block;
+    padding:10px 25px;
+    border-radius:999px;
+    font-weight:600;
+    text-decoration:none;
+    color:#fff;
+    background:linear-gradient(135deg,#ff4e89,#ffb6c1);
+    box-shadow:0 8px 15px rgba(255,78,137,.2);
+    transition:.3s ease;
+    opacity:0; transform:translateY(10px);
+  }
+  .btn.show { opacity:1; transform:translateY(0); }
+  .back-btn {
+    background: linear-gradient(135deg,#87cefa,#b0c4de);
+    box-shadow:0 8px 15px rgba(135,206,250,.2);
+  }
+
+  /* Floating hearts */
+  .hearts .heart {
+    position:absolute; width:15px; height:15px;
+    background:#ff758c; transform:rotate(-45deg);
+    animation:float 5s linear infinite;
+    opacity:0.6;
+  }
+  .hearts .heart::before, .hearts .heart::after {
+    content:""; position:absolute; width:15px; height:15px; background:#ff758c; border-radius:50%;
+  }
+  .hearts .heart::before { top:-8px; left:0; }
+  .hearts .heart::after { left:8px; top:0; }
+
+  @keyframes float {
+    0% { transform:translateY(100vh) rotate(-45deg) scale(1); opacity:0; }
+    20% { opacity:0.8; }
+    100% { transform:translateY(-10vh) rotate(-45deg) scale(1.2); opacity:0; }
+  }
+
+  @media (max-width:600px){
+    header h1 { font-size:42px; }
+    header p { font-size:14px; }
+    .envelope { width:240px; height:160px; }
+    .envelope .flap { border-left:120px solid transparent; border-right:120px solid transparent; border-bottom:80px solid #ffb6c1; }
+    .letter { padding:22px; }
+    .letter-content p { font-size:15px; line-height:1.7; }
+    .btn { width:48%; text-align:center; margin-bottom:5px; }
+  }
+</style>
 </head>
 <body>
 <div class="container">
@@ -17,7 +183,6 @@
   <div class="envelope" id="envelope">
     <div class="flap"></div>
     <div class="body"></div>
-
     <div class="letter" id="letter">
       <div class="letter-content" id="letterContent">
         <p class="line">สวัสดีนะหนู🌸</p>
@@ -27,9 +192,9 @@
         <p class="line">ตอนนั้นพี่ไม่คิดเลยว่าการคุยกันธรรมดาๆ จะค่อยๆ กลายเป็นความรู้สึกดีๆ ที่เพิ่มขึ้นทุกวัน</p>
         <p class="line">ทุกครั้งที่เห็นชื่อหนูเด้งขึ้นมา พี่จะยิ้มโดยไม่รู้ตัว</p>
         <p class="line">พี่รักหนูนะ 💌</p>
-
         <div class="btn-container">
-            <a href="next.html" class="btn">กลับหน้าแรก 🏠</a>
+          <a href="countdown.html" class="btn back-btn">ย้อนกลับ</a>
+          <a href="gallery.html" class="btn">หน้าถัดไป</a>
         </div>
       </div>
     </div>
@@ -46,6 +211,28 @@
   <audio id="openSound" src="open-envelope.mp3"></audio>
 </div>
 
-<script src="letter.js"></script>
+<script>
+const envelope = document.getElementById('envelope');
+const headerText = document.getElementById('headerText');
+const lines = document.querySelectorAll('.letter-content p');
+const btns = document.querySelectorAll('.btn');
+const openSound = document.getElementById('openSound');
+
+envelope.addEventListener('click', () => {
+  envelope.classList.add('open');
+  if(headerText) headerText.style.opacity = '0';
+  
+  if(openSound) openSound.play().catch(e => console.log("Sound play prevented"));
+
+  lines.forEach((line,i)=>{
+    setTimeout(()=>{
+      line.classList.add('show');
+      if(i === lines.length-1){
+        setTimeout(()=> btns.forEach(b => b.classList.add('show')), 500);
+      }
+    }, (i+1)*800);
+  });
+});
+</script>
 </body>
 </html>

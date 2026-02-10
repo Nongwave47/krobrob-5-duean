@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Gallery 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#ff5f9e;
+    --soft:#ffe6f0;
+    --glass:rgba(255,255,255,0.55);
+    --border:rgba(255,255,255,0.4);
+    --text:#333;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    font-family:'Kanit',sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#ff7eb3,#ff758c,#ffb6c1,#ffe6f0);
+    background-size:400% 400%;
+    animation:bgMove 18s ease infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+  }
+
+  @keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+
+  h1.title{
+    font-family: 'Sacramento', cursive;
+    font-size:82px;
+    margin:20px 0;
+    text-align:center;
+    color:#fff;
+    text-shadow:
+      0 10px 35px rgba(0,0,0,.35),
+      0 0 25px rgba(255,255,255,.35);
+    animation:float 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(-10px);}
+  }
+
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;
+    width:90%;
+    max-width:1000px;
+    margin:20px auto;
+  }
+
+  .gallery img{
+    width:100%;
+    height:auto;
+    object-fit:contain;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(255,64,129,.3);
+  }
+
+  .gallery img:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 25px rgba(255,64,129,.5);
+  }
+
+  .btn-group{
+    text-align:center;
+    margin:20px 0;
+  }
+
+  .btn{
+    display:inline-block;
+    margin:10px;
+    padding:16px 34px;
+    border-radius:999px;
+    font-size:17px;
+    font-weight:600;
+    text-decoration:none;
+    color:#fff;
+    background:linear-gradient(135deg,#ff4e89,#ff758c,#ffb6c1);
+    box-shadow:0 12px 30px rgba(255,78,137,.45);
+    transition:.3s ease;
+  }
+
+  .btn:hover{
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 18px 40px rgba(255,78,137,.6);
+  }
+
+  /* Lightbox modal */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+  .modal-content{
+    background:var(--glass);
+    backdrop-filter:blur(22px);
+    border-radius:24px;
+    padding:15px;
+    max-width:80%;
+    text-align:center;
+    position:relative;
+    border:1px solid var(--border);
+    box-shadow:
+      0 30px 60px rgba(0,0,0,.2),
+      inset 0 0 0 1px rgba(255,255,255,.2);
+  }
+
+  .modal-content img {
+    max-width: 100%;  /* ลดจาก 100% → 60% ของ modal-content */
+    max-height: 80vh; /* ไม่ให้สูงเกินหน้าจอ */
+    border-radius: 16px;
+}
+
+  .closeModal{
+    position:absolute;
+    top:12px;
+    right:16px;
+    font-size:24px;
+    font-weight:bold;
+    color:#333;
+    cursor:pointer;
+  }
+
+  @media(max-width:480px){
+    h1.title{font-size:60px;}
+    .btn{padding:12px 28px; font-size:15px;}
+  }
+</style>
+</head>
+<body>
+
+<h1 class="title">Valentine Gallery 💖</h1>
+
+<div class="gallery">
+  <img src="15930_0.jpg" alt="Valentine 1">
+  <img src="15929_0.jpg" alt="Valentine 2">
+  <img src="15928_0.jpg" alt="Valentine 3">
+  <img src="15927_0.jpg" alt="Valentine 4">
+  <img src="15926_0.jpg" alt="Valentine 5">
+  <img src="15925_0.jpg" alt="Valentine 6">
+  <img src="15924_0.jpg" alt="Valentine 7">
+  <img src="15923_0.jpg" alt="Valentine 8">
+  <img src="15922_0.jpg" alt="Valentine 9">
+  <img src="15921_0.jpg" alt="Valentine 10">
+  <img src="15920_0.jpg" alt="Valentine 11">
+  <img src="15919_0.jpg" alt="Valentine 12">
+  <img src="15918_0.jpg" alt="Valentine 13">
+  <img src="15917_0.jpg" alt="Valentine 14">
+  <img src="15916_0.jpg" alt="Valentine 15">
+  <img src="15915_0.jpg" alt="Valentine 16">
+  <img src="15914_0.jpg" alt="Valentine 17">
+  <img src="15913_0.jpg" alt="Valentine 18">
+  <img src="15912_0.jpg" alt="Valentine 19">
+  <img src="15911_0.jpg" alt="Valentine 20">
+  <img src="15910_0.jpg" alt="Valentine 21">
+  <img src="15909_0.jpg" alt="Valentine 22">
+  <img src="15908_0.jpg" alt="Valentine 23">
+  <img src="15907_0.jpg" alt="Valentine 24">
+  <img src="15906_0.jpg" alt="Valentine 25">
+  <img src="15905_0.jpg" alt="Valentine 26">
+  <img src="15904_0.jpg" alt="Valentine 27">
+  <img src="15903_0.jpg" alt="Valentine 28">
+  <img src="15902_0.jpg" alt="Valentine 29">
+  <img src="15901_0.jpg" alt="Valentine 30">
+  <img src="15900_0.jpg" alt="Valentine 31">
+  <img src="15899_0.jpg" alt="Valentine 32">
+  <img src="15898_0.jpg" alt="Valentine 33">
+  <img src="15897_0.jpg" alt="Valentine 34">
+  <img src="15896_0.jpg" alt="Valentine 35">
+  <img src="15895_0.jpg" alt="Valentine 36">
+  <img src="15894_0.jpg" alt="Valentine 37">
+  <img src="15893_0.jpg" alt="Valentine 38">
+  <img src="15892_0.jpg" alt="Valentine 39">
+  <img src="15891_0.jpg" alt="Valentine 40">
+  <img src="15890_0.jpg" alt="Valentine 41">
+  <img src="15889_0.jpg" alt="Valentine 42">
+  <img src="15888_0.jpg" alt="Valentine 43">
+  <img src="15887_0.jpg" alt="Valentine 44">
+  <img src="15886_0.jpg" alt="Valentine 45">
+  <img src="15885_0.jpg" alt="Valentine 46">
+  <img src="15884_0.jpg" alt="Valentine 47">
+  <img src="15883_0.jpg" alt="Valentine 48">
+  <img src="15882_0.jpg" alt="Valentine 49">
+  <img src="15881_0.jpg" alt="Valentine 50">
+  <img src="15880_0.jpg" alt="Valentine 51">
+  <img src="15879_0.jpg" alt="Valentine 52">
+  <img src="15878_0.jpg" alt="Valentine 53">
+  <img src="15877_0.jpg" alt="Valentine 54">
+  <img src="15876_0.jpg" alt="Valentine 55">
+  <img src="15875_0.jpg" alt="Valentine 56">
+  <img src="15874_0.jpg" alt="Valentine 57">
+  <img src="15873_0.jpg" alt="Valentine 58">
+  <img src="15872_0.jpg" alt="Valentine 59">
+  <img src="15871_0.jpg" alt="Valentine 60">
+  <img src="15870_0.jpg" alt="Valentine 61">
+  <img src="15869_0.jpg" alt="Valentine 62">
+  <img src="15868_0.jpg" alt="Valentine 63">
+  <img src="15867_0.jpg" alt="Valentine 64">
+  <img src="15866_0.jpg" alt="Valentine 65">
+  <img src="15865_0.jpg" alt="Valentine 66">
+  <img src="15864_0.jpg" alt="Valentine 67">
+  <img src="15863_0.jpg" alt="Valentine 68">
+  <img src="15862_0.jpg" alt="Valentine 69">
+  <img src="15861_0.jpg" alt="Valentine 70">
+  <img src="15860_0.jpg" alt="Valentine 71">
+  <img src="15859_0.jpg" alt="Valentine 72">
+  <img src="15858_0.jpg" alt="Valentine 73">
+  <img src="15857_0.jpg" alt="Valentine 74">
+  <img src="15856_0.jpg" alt="Valentine 75">
+</div>
+
+<div class="btn-group">
+  <a href="letter.html" class="btn">ย้อนกลับ</a>
+  <a href="game.html" class="btn">หน้าถัดไป ➡️</a>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="closeModal" id="closeModal">&times;</span>
+    <img id="modalImg" src="">
+  </div>
+</div>
+
+<script>
+const images = document.querySelectorAll('.gallery img');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const closeModal = document.getElementById('closeModal');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    modal.style.display='flex';
+    modalImg.src=img.src;
+  });
+});
+
+closeModal.addEventListener('click', ()=> modal.style.display='none');
+window.addEventListener('click', e => { if(e.target===modal) modal.style.display='none'; });
+</script>
+
+</body>
+</html>

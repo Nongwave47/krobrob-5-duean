@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz ครบรอบ 5 เดือน 💖</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Kanit', 'Comic Sans MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(270deg, #ffd6e8, #ff9ccf, #ff80ab, #ff4081);
+  background-size: 800% 800%;
+  animation: gradientBG 20s ease infinite;
+  color: #880e4f;
+}
+
+@keyframes gradientBG {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: rgba(255,255,255,0.92);
+  padding: 25px 20px 30px;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(255,64,129,0.4);
+}
+
+h1 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px #ff4081;
+}
+
+.progress {
+  width: 100%;
+  height: 8px;
+  background: #ffd6e8;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff4081, #ff80ab);
+  transition: width 0.4s ease;
+}
+
+#question {
+  font-size: 1.15em;
+  margin-bottom: 20px;
+  animation: fadeSlide 0.4s ease;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.options button {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 14px;
+  font-size: 1em;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: #ff4081;
+  color: white;
+  box-shadow: 0 5px 15px rgba(255,64,129,0.35);
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.options button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255,64,129,0.6);
+}
+
+.options button:active {
+  transform: scale(0.95);
+}
+
+#message {
+  display: none;
+  animation: fadeSlide 0.5s ease;
+}
+
+#message p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.btn-group {
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 8px;
+  padding: 12px 22px;
+  background: #ff4081;
+  color: white;
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(255,64,129,0.4);
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255,64,129,0.6);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Quiz ครบรอบ 5 เดือน 💖</h1>
+  <div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  <div id="question"></div>
+  <div class="options"></div>
+
+  <div id="message">
+    <p>คุณทำ Quiz จบแล้ว! 💌</p>
+    <p id="finalScore"></p>
+    <div class="btn-group">
+      <a href="gallery.html" class="btn">ย้อนกลับ</a>
+      <a href="" class="btn" onclick="location.reload();return false;">เล่นอีกครั้ง 🔁</a>
+      <a href="end.html" class="btn">หน้าถัดไป ➡️</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const questions = [
+  { q: "จำได้มั้ยว่าเราคุยกันครั้งแรกผ่านช่องทางไหน?", options: ["Facebook", "Line", "Instagram", "Litmatch"], answer: "Litmatch" },
+  { q: "ตอนคุยกันแรกๆ ใครเป็นคนทักไปก่อนน้าา?", options: ["พี่ทักก่อน", "หนูทักก่อน", "กดใจให้จนเขาทักมา", "บังเอิญพร้อมกัน"], answer: "พี่ทักก่อน" },
+  { q: "ช่วงเวลาที่เราคอลหากันบ่อยที่สุดคือตอนไหน?", options: ["ตอนเช้าหลังตื่น", "ตอนพักเที่ยง", "ก่อนนอนยันเช้า", "คอลทิ้งไว้ทั้งวัน"], answer: "ก่อนนอนยันเช้า" },
+  { q: "แอปฯ ไหนที่เราคุยกันบ่อยที่สุด?", options: ["Discord", "TikTok", "YouTube", "Instagram"], answer: "Instagram" },
+  { q: "ถ้าได้เจอตัวจริงครั้งแรก สิ่งแรกที่พี่จะทำคืออะไร?", options: ["กระโดดกอดแน่นๆ", "ยืนเขินทำตัวไม่ถูก", "จูงมือไปหาของกิน", "แอบมองหน้าใกล้ๆ"], answer: "กระโดดกอดแน่นๆ" },
+  { q: "ของขวัญที่ส่งไปให้ (หรืออยากส่งให้) ชิ้นไหนที่หนูว่ามันแทนตัวพี่ที่สุด?", options: ["ตุ๊กตาไว้กอดแทนกัน", "เสื้อยืดที่มีกลิ่นน้ำหอมพี่", "ของกินที่หนูชอบ", "รูปโพลารอยด์"], answer: "ตุ๊กตาไว้กอดแทนกัน" },
+  { q: "เมนูอะไรที่ถ้าเราเจอตัวจริงกันแล้ว ต้องไปกินด้วยกันมื้อแรก?", options: ["ชาบู/หมูกระทะ", "สเต็กหรูๆ", "ส้มตำแซ่บๆ", "ไอศกรีม/ของหวาน"], answer: "ชาบู/หมูกระทะ" },
+  { q: "เวลาพี่หายไปนานๆ หนูมักจะคิดว่าพี่ทำอะไรอยู่?", options: ["แอบไปหลับแน่ๆ", "ตั้งใจทำงานอยู่", "เล่นเกมเพลิน", "แอบหนีไปเที่ยว"], answer: "แอบไปหลับแน่ๆ" },
+  { q: "ประโยคบอกฝันดีของพี่ที่หนูชอบที่สุดคือ?", options: ["ฝันดีน๊าาาาาาาา", "รักหนูนะคะ", "เจอกันในฝันนะ", "ตื่นมาคุยกันต่อนะ"], answer: "ฝันดีน๊าาาาาาาา" },
+  { q: "เวลาเรางอนกันผ่านแชท วิธีไหนที่ทำให้เราดีกันเร็วที่สุด?", options: ["วิดีโอคอลมาง้อ", "ส่งสติกเกอร์กวนๆ", "พิมพ์ยาวๆ อธิบายความรู้สึก", "ร้องเพลงให้ฟัง"], answer: "วิดีโอคอลมาง้อ" },
+  { q: "นิสัยของพี่ในแชทที่หนูว่า 'กวน' ที่สุดคืออะไร?", options: ["ชอบตอบช้าให้ลุ้น", "ชอบส่งรูปหน้าตลกๆ", "ชอบพิมพ์ผิดบ่อยๆ", "ห๊ะ อะไรนะ"], answer: "ห๊ะ อะไรนะ" },
+  { q: "จังหวัด/ที่เที่ยวไหนที่เราสัญญากันไว้ว่า 'ต้องไปให้ได้'?", options: ["ทะเล", "เชียงใหม่/ภูเขา", "ต่างประเทศ", "ที่ไหนก็ได้ที่ไปด้วยกัน"], answer: "ที่ไหนก็ได้ที่ไปด้วยกัน" },
+  { q: "พี่ชอบฟังเพลงแนวไหนมากที่สุด?", options: ["เพลงรักหวานๆ", "เพลงเศร้าๆ อกหัก", "เพลงกวนๆ", "เพลงที่เราแชร์ให้กันฟังบ่อยๆ"], answer: "เพลงเศร้าๆ อกหัก" },
+  { q: "สิ่งที่หนูชอบที่สุดเวลาเราวิดีโอคอลกันคืออะไร?", options: ["ได้เห็นหน้าพี่ชัดๆ", "เห็นพี่ตอนพึ่งตื่น", "เห็นพี่ทำหน้างอแง", "เห็นพี่ตอนตั้งใจทำอะไรสักอย่าง"], answer: "ได้เห็นหน้าพี่ชัดๆ" },
+  { q: "มีอะไรแปลกๆ ในแชทที่ทำให้หนูขำไม่หยุดมั้ย?", options: ["รูปหลุดตัวพี่เอง", "มีมแปลกๆ", "เสียงพากย์ตลกๆ", "คลิปเต้น"], answer: "รูปหลุดตัวพี่เอง" },
+  { q: "ถ้าอยู่ดีๆ พี่ส่ง Grab Food ไปเซอร์ไพรส์ที่หน้าบ้านหนู หนูอยากได้อะไรที่สุด?", options: ["ชานมไข่มุกหวานร้อย", "ไก่ทอดร้อนๆ", "ขนมหวานที่หนูชอบ", "ไม่ต้องส่งของมา ส่งตัวพี่มาก็พอ"], answer: "ไม่ต้องส่งของมา ส่งตัวพี่มาก็พอ" },
+  { q: "เวลาหนูเหนื่อยจากงาน/เรียน พี่มักจะพูดว่าอะไรให้หนูหายเหนื่อย?", options: ["สู้ๆ น๊าาาาาา", "มาให้พี่กอดทิพย์หน่อยมา", "เดี๋ยวซื้อขนมส่งไปให้นะ", "โอ๋ๆ นะคะ"], answer: "สู้ๆ น๊าาาาาา" },
+  { q: "ฟิลเตอร์ไอจีไหนที่พี่ใช้แล้วหนูว่ามัน 'ใช่' ที่สุด?", options: ["ฟิลเตอร์หน้าตลก", "ฟิลเตอร์หน้าใส", "ฟิลเตอร์ขาวดำ", "ไม่ใช้เลย หล่อธรรมชาติ"], answer: "ไม่ใช้เลย หล่อธรรมชาติ" },
+  { q: "ถ้าพี่บอกว่าจะไปหาหนูพรุ่งนี้เลย หนูจะรู้สึกยังไง?", options: ["ตื่นเต้นจนนอนไม่หลับ", "รีบทำความสะอาดห้อง", "หาชุดที่สวยที่สุด", "คิดว่าพี่แกล้งอำ"], answer: "ตื่นเต้นจนนอนไม่หลับ" },
+  { q: "ถ้าพี่บอกว่า 'จะโอนเงินให้' หนูจะตอบกลับภายในกี่วินาที?", options: ["0.01 วินาที (ไวปานแสง)", "แกล้งปฏิเสธพอเป็นพิธี", "ไม่เอาหรอก...ขอเป็นเลขบัญชีเลย", "รอพี่ถามซ้ำอีกรอบ"], answer: "0.01 วินาที (ไวปานแสง)" },
+  { q: "ถ้าเรามีประตูวิเศษทะลุจอไปหาได้ 5 นาที หนูอยากทำอะไรกับพี่เป็นอย่างแรก?", options: ["กอดให้หายคิดถึง", "บีบแก้มพี่แรงๆ หมั่นเขี้ยว", "ตีแขนพี่สักทีโทษฐานที่ชอบแกล้ง", "ขอนั่งพิงไหล่เงียบๆ"], answer: "กอดให้หายคิดถึง" },
+  { q: "พี่ชอบทักมาหาหนูด้วยคำว่าอะไรเป็นคำแรกของวัน?", options: ["มอนิ่งคั้บบบบบ", "ตื่นยังเอ่ย", "คิดถึงจัง", "หิวข้าวแล้ว"], answer: "มอนิ่งคั้บบบบบ" },
+  { q: "เวลาเราดูคลิป TikTok ด้วยกัน หนูชอบแนวไหนที่สุด?", options: ["คลิปแมว/หมา", "คลิปอาหาร", "คลิปตลก", "คลิปเต้น"], answer: "คลิปอาหาร" },
+  { q: "พี่เคยแอบแคปหน้าจอตอนเราคอลกันมั้ย?", options: ["ประจำ! รูปหลุดพี่มีเต็มเครื่อง", "แคปเฉพาะตอนพี่หล่อ", "ไม่เคยเลย เขิน", "แคปไว้ดูตอนคิดถึง"], answer: "ประจำ! รูปหลุดพี่เต็มเครื่อง" },
+  { q: "อะไรคือสิ่งที่ทำให้เราคบกันมาได้ถึง 5 เดือนทั้งที่ยังไม่เจอตัวจริง?", options: ["ความไว้ใจกัน", "ความสม่ำเสมอ", "เราคุยกันรู้เรื่อง", "ถูกทุกข้อ!"], answer: "ถูกทุกข้อ!" },
+  { q: "ถ้าพี่ทำอาหารให้หนูทานได้ 1 อย่าง อยากให้พี่ทำอะไร?", options: ["ไข่เจียวฝีมือพี่", "มาม่าทรงเครื่อง", "อาหารคลีน", "สั่งแกร็บเถอะพี่"], answer: "ไข่เจียวฝีมือพี่" },
+  { q: "สีเสื้อผ้าที่พี่ใส่แล้วหนูว่าพี่ 'ดูดีที่สุด' ในรูป/กล้อง?", options: ["สีขาวดูสะอาดตา", "สีดำเท่ๆ", "สีชมพูตะมุตะมิ", "ใส่ชุดนอนก็น่ารักแล้ว"], answer: "สีดำเท่ๆ" },
+  { q: "ตอนไหนที่พี่รู้สึกว่าหนู 'อ้อน' พี่ที่สุด?", options: ["ตอนขอให้พี่ไม่ไปนอน", "ตอนเรียกพี่ว่า 'ยัยพี่'", "ตอนส่งรูปหน้ามุ่ยมา", "ตอนบอกว่าคิดถึง"], answer: "ตอนบอกว่าคิดถึง" },
+  { q: "ความฝันสูงสุดของเราในตอนนี้คืออะไร?", options: ["ได้เจอหน้ากันจริงๆ", "ได้ไปเที่ยวด้วยกัน", "ได้อยู่ด้วยกันตลอดไป", "มีลูกแมวด้วยกันสักตัว"], answer: "ได้เจอหน้ากันจริงๆ" },
+  { q: "สุดท้ายแล้ว 5 เดือนที่ผ่านมา พี่อยากบอกอะไรหนูที่สุด?", options: ["ขอบคุณที่ไม่ไปไหนนะ", "รักหนูมากขึ้นทุกวัน", "จะรีบไปหาให้ได้เลย", "รักหนูที่สุดในโลก"], answer: "รักหนูที่สุดในโลก" }
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const questionEl = document.getElementById("question");
+const optionsEl = document.querySelector(".options");
+const messageEl = document.getElementById("message");
+const finalScoreEl = document.getElementById("finalScore");
+const progressBar = document.getElementById("progressBar");
+
+function showQuestion() {
+  progressBar.style.width = ((currentQuestion / questions.length) * 100) + "%";
+
+  if (currentQuestion >= questions.length) {
+    questionEl.style.display = "none";
+    optionsEl.style.display = "none";
+    messageEl.style.display = "block";
+    finalScoreEl.textContent = `หนูตอบถูก ${score} จาก ${questions.length} ข้อเลยนะ 💖`;
+    progressBar.style.width = "100%";
+    return;
+  }
+
+  const q = questions[currentQuestion];
+  questionEl.textContent = q.q;
+  optionsEl.innerHTML = "";
+
+  q.options.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.textContent = opt;
+    btn.onclick = () => {
+      if (opt === q.answer) score++;
+      currentQuestion++;
+      showQuestion();
+    };
+    optionsEl.appendChild(btn);
+  });
+}
+
+showQuestion();
+</script>
+</body>
+</html>
